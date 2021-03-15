@@ -1,0 +1,12 @@
+// Import Bulma and Buefy styles
+$gap: 64px;
+$container-offset: (2 * $gap);
+@import "~buefy/src/scss/buefy-build";
+
+// Tailwind
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Custom CSS
+@import "partials/utilities";

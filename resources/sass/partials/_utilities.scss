@@ -1,0 +1,17 @@
+html,
+body {
+    font-family: "Nunito", sans-serif;
+}
+
+::placeholder {
+    color: grey !important;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: grey !important;
+}
+
+::-ms-input-placeholder {
+    color: grey !important;
+}
