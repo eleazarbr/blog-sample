@@ -1,4 +1,5 @@
 require('./bootstrap')
+require('alpinejs')
 import Vue from 'vue/dist/vue'
 Vue.config.productionTip = false
 
