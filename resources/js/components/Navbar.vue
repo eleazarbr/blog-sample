@@ -23,7 +23,20 @@
         </div>
       </b-navbar-item>
       <!-- auth items -->
-      <b-navbar-item v-else @click="logout"> Logout </b-navbar-item>
+      <b-navbar-dropdown
+        v-else
+        position="is-bottom-right"
+        :collapsible="true"
+        :append-to-body="true"
+        :trap-focus="true"
+      >
+        <template slot="label">
+          {{ user.name }}
+        </template>
+        <b-navbar-item tag="a" :href="route('posts.create')"> Create post </b-navbar-item>
+        <hr class="navbar-divider" />
+        <b-navbar-item @click="logout"> Logout </b-navbar-item>
+      </b-navbar-dropdown>
     </template>
   </b-navbar>
 </template>
@@ -48,6 +61,7 @@ export default {
 
   computed: {
     ...mapGetters(["guest"]),
+    ...mapState(["user"]),
   },
 };
 </script>
