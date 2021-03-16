@@ -18,12 +18,6 @@
               Add
             </span>
           </a>
-          <a href="" class="button is-danger">
-            <span class="icon"><i class="fa fa-download"></i></span>
-            <span class="text-sm font-bold">
-              Import
-            </span>
-          </a>
         </div>
       </div>
 

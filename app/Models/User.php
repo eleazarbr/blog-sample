@@ -48,4 +48,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+    /**
+     * Query the admin user
+     */
+    public function scopeAdmin($query)
+    {
+        return $query->where('email', 'admin@test.com');
+    }
 }

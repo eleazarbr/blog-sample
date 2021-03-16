@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\StorePostRequest;
 
 class PostController extends Controller
 {
 
+    /**
+     * User posts
+     */
     public function index()
     {
         $user = auth()->user();
-        $posts = $user->posts;
+        $posts = $user->posts()->latest('published_at')->get();
         return view('posts.index', compact('posts'));
     }
 
@@ -25,14 +28,8 @@ class PostController extends Controller
     /**
      * Store a new post
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
-        $request->validate([
-            'title' => 'required|max:100',
-            'description' => 'required|max:500',
-            'published_at' => 'required|date'
-        ]);
-
         $user = $request->user();
         $user->posts()->create($request->all());
 
