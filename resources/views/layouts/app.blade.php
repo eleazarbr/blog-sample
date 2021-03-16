@@ -10,8 +10,10 @@
   <title>@yield('title') – {{ config('app.name') }} </title>
 
   <link rel="shortcut icon" href="#" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
   <link href="{{ mix('css/app.css') }}" rel="stylesheet">
   @stack('styles')
+  @routes
 </head>
 
 <body>
@@ -27,7 +29,6 @@
   </div>
 
   <script src="{{ mix('js/app.js') }}"></script>
-
   @stack('scripts')
 </body>
 

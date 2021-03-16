@@ -1,6 +1,8 @@
 require('./bootstrap')
 require('alpinejs')
 import Vue from 'vue/dist/vue'
+import store from './store'
+
 Vue.config.productionTip = false
 
 import Buefy from 'buefy'
@@ -14,7 +16,8 @@ Vue.mixin({
             let instance = moment()
             if (date) instance = moment(date)
             return instance
-        }
+        },
+        route: route
     }
 })
 
@@ -30,5 +33,6 @@ files.keys().map(key =>
 )
 
 new Vue({
-    el: '#app'
+    el: '#app',
+    store
 })
