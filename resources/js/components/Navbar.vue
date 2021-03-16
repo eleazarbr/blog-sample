@@ -33,7 +33,7 @@
         <template slot="label">
           {{ user.name }}
         </template>
-        <b-navbar-item tag="a" :href="route('posts.create')"> Create post </b-navbar-item>
+        <b-navbar-item tag="a" :href="route('posts.index')"> Posts </b-navbar-item>
         <hr class="navbar-divider" />
         <b-navbar-item @click="logout"> Logout </b-navbar-item>
       </b-navbar-dropdown>

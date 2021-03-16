@@ -21,9 +21,12 @@
         >
         </b-datepicker>
       </b-field>
-      <div class="buttons pt-3">
-        <b-button expanded type="is-primary" :loading="isLoading" @click="store">
-          Save
+      <div class="buttons is-centered pt-3">
+        <b-button icon-left="angle-left" tag="a" :href="route('posts.index')">
+          <span class="text-sm font-bold"> Cancel </span>
+        </b-button>
+        <b-button type="is-primary" :loading="isLoading" @click="store">
+          <span class="text-sm font-bold"> Save </span>
         </b-button>
       </div>
     </div>
@@ -47,7 +50,7 @@ export default {
       axios
         .post(route("posts.store"), this.form)
         .then((r) => {
-          window.location.href = route("web.index");
+          window.location.href = route("posts.index");
         })
         .finally(() => {
           this.isLoading = false;
