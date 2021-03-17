@@ -55,14 +55,16 @@ class ImportPosts extends Command
         $bar = $this->output->createProgressBar($posts->count());
         $bar->start();
 
-        $posts->each(function ($post) use ($admin, $bar) {
-            $admin->posts()->create([
-                'title' => $post['title'],
-                'description' => $post['description'],
-                'published_at' => $post['publication_date']
-            ]);
-            $bar->advance();
-        });
+        foreach ($posts->chunk(500) as $postChunk) {
+            foreach ($postChunk as $post) {
+                $admin->posts()->create([
+                    'title' => $post['title'],
+                    'description' => $post['description'],
+                    'published_at' => $post['publication_date']
+                ]);
+                $bar->advance();
+            }
+        }
 
         $bar->finish();
     }
